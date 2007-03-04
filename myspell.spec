@@ -1,5 +1,5 @@
 %define		_major	3
-%define		_rel	0.2
+%define		_rel	0.3
 Summary:	myspell
 Name:		myspell
 Version:	3.1
@@ -15,22 +15,6 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 MySpell is a Spellchecker as (and derived from) ispell.
-
-%package -n myspell-en_US
-Summary:	MySpell spelling dictionaries for English (US)
-License:	BSD
-Group:		Applications/Text
-#Requires:	locales-en
-Requires:	myspell-common
-Provides:	myspell-dictionary = %{version}
-Provides:	myspell-en = %{version}
-Obsoletes:	myspell-en
-
-%description -n myspell-en_US
-myspell-en_US contains spell checking data in English (US) to be used
-by OpenOffice.org or MySpell-capable applications like Mozilla. With
-this extension, you can compose a document in English and check for
-the typos easily.
 
 # NOTE: munch,unmunch collide with hunspell-tools
 %package tools
@@ -105,6 +89,9 @@ cat myspell.pc.in \
 | sed -e s,@prefix@,%{_prefix}, | sed -e s,@version@,%{version}, \
 	> $RPM_BUILD_ROOT%{_pkgconfigdir}/myspell.pc
 
+# packaged by myspell-dictionaries
+rm -f $RPM_BUILD_ROOT%{_datadir}/myspell/en_US.{aff,dic}
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -115,11 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.* CONTRIBUTORS
 %attr(755,root,root) %{_libdir}/libmyspell.so.*.*
-
-%files -n myspell-en_US
-%defattr(644,root,root,755)
-%{_datadir}/myspell/en_US.aff
-%{_datadir}/myspell/en_US.dic
 
 %files tools
 %defattr(644,root,root,755)

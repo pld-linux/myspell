@@ -77,15 +77,22 @@ rm *.o
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_prefix},%{_pkgconfigdir},%{_mandir}/man1}
-%{__make} install STATICLIB=libmyspell-%{version}.a PREFIX=$RPM_BUILD_ROOT%{_prefix}
-%{__make} install PREFIX=$RPM_BUILD_ROOT%{_prefix}
+install -d $RPM_BUILD_ROOT{%{_libdir},%{_pkgconfigdir},%{_mandir}/man1}
+%if "lib" != "%{_lib}"
+ln -s %{_lib} $RPM_BUILD_ROOT%{_prefix}/lib
+%endif
+%{__make} install \
+	STATICLIB=libmyspell.a \
+	PREFIX=$RPM_BUILD_ROOT%{_prefix}
+%{__make} install \
+	STATICLIB=libmyspell_pic.a \
+	PREFIX=$RPM_BUILD_ROOT%{_prefix}
 
 # create the links since the Makefile does create them in the dir
 # but does not install them
 cd $RPM_BUILD_ROOT%{_libdir} && \
-	ln -s libmyspell.so.%{version} libmyspell.so.%{_major} && \
-	ln -s libmyspell.so.%{version} libmyspell.so
+	ln -s $(echo libmyspell.so.*.*) libmyspell.so.%{_major} && \
+	ln -s $(echo libmyspell.so.*.*) libmyspell.so
 cd -
 
 install utils/ispellaff2myspell $RPM_BUILD_ROOT%{_bindir}
@@ -128,5 +135,5 @@ rm -rf $RPM_BUILD_ROOT
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/libmyspell-3.0.a
-%{_libdir}/libmyspell-3.1_pic.a
+%{_libdir}/libmyspell.a
+%{_libdir}/libmyspell_pic.a

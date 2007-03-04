@@ -1,5 +1,5 @@
 %define		_major	3
-%define		_rel	0.1
+%define		_rel	0.2
 Summary:	myspell
 Name:		myspell
 Version:	3.1
@@ -21,6 +21,7 @@ Summary:	MySpell spelling dictionaries for English (US)
 License:	BSD
 Group:		Applications/Text
 #Requires:	locales-en
+Requires:	myspell-common
 Provides:	myspell-dictionary = %{version}
 Provides:	myspell-en = %{version}
 Obsoletes:	myspell-en
@@ -117,7 +118,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n myspell-en_US
 %defattr(644,root,root,755)
-%dir %{_datadir}/myspell
 %{_datadir}/myspell/en_US.aff
 %{_datadir}/myspell/en_US.dic
 

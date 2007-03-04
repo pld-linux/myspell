@@ -29,7 +29,7 @@ by OpenOffice.org or MySpell-capable applications like Mozilla. With
 this extension, you can compose a document in English and check for
 the typos easily.
 
-# NOTE: munch,unmunch collide with hunspell-devel
+# NOTE: munch,unmunch collide with hunspell-tools
 %package tools
 Summary:	MySpell tools
 Group:		Development/Libraries

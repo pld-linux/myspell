@@ -1,11 +1,12 @@
 %define		_major	3
+%define		_rel	0.1
 Summary:	myspell
 Name:		myspell
-Version:	3.0
-Release:	0.3
+Version:	3.1
+Release:	0.pre.%{_rel}
 License:	?
 Group:		Libraries
-Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_%{version}+pre3.1.orig.tar.gz
+Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}.orig.tar.gz
 # Source0-md5:	b487ec9287d5d006dadc73f2c0bb68e9
 Source1:	%{name}-debian.tar.bz2
 # Source1-md5:	585eda508195d44ba2886aa6d2f972fc
@@ -59,7 +60,7 @@ This package contains the static library to use for programs wanting
 to use myspell.
 
 %prep
-%setup -q -n %{name}-%{version}+pre3.1 -a1
+%setup -q -n %{name}-3.0+pre%{version} -a1
 for a in $(cat patches/00list); do
 	patch -p1 < patches/$a.dpatch;
 done

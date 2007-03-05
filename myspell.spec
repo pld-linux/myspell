@@ -1,5 +1,5 @@
 %define		_major	3
-%define		_rel	0.3
+%define		_rel	1
 Summary:	myspell
 Name:		myspell
 Version:	3.1

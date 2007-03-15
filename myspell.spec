@@ -1,5 +1,5 @@
 %define		_major	3
-%define		_rel	2
+%define		_rel	3
 Summary:	myspell
 Name:		myspell
 Version:	3.1
@@ -102,7 +102,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.* CONTRIBUTORS
 %attr(755,root,root) %{_libdir}/libmyspell.so.*.*
-%dir %{_datadir}/myspell
 
 %files tools
 %defattr(644,root,root,755)

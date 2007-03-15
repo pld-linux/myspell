@@ -1,6 +1,7 @@
 %define		_major	3
 %define		_rel	3
-Summary:	myspell
+Summary:	myspell - spellchecker derived from ispell
+Summary(pl.UTF-8):	myspell - narzędzie do sprawdzania pisowni wywodzące się z myspella
 Name:		myspell
 Version:	3.1
 Release:	0.pre.%{_rel}
@@ -16,9 +17,14 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 MySpell is a Spellchecker as (and derived from) ispell.
 
+%description -l pl.UTF-8
+MySpell to narzędzie do sprawdzania pisowni podobne do ispella (i z
+niego się wywodzące).
+
 # NOTE: munch,unmunch collide with hunspell-tools
 %package tools
 Summary:	MySpell tools
+Summary(pl.UTF-8):	Narzędzia MySpella
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
@@ -26,23 +32,37 @@ Requires:	%{name} = %{version}-%{release}
 This package contains scripts which may be helpful for converting
 ispell dictionaries to myspell ones.
 
+%description tools -l pl.UTF-8
+Ten pakiet zawiera skrypty przydatne do konwersji słowników ispella
+do słowników myspella.
+
 %package devel
 Summary:	MySpell spellchecking library development files
+Summary(pl.UTF-8):	Pliki programistyczne biblioteki MySpella
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 
 %description devel
-This package contains the headers and the static library to use for
-programs wanting to use myspell.
+This package contains the headers to use for programs wanting to use
+myspell.
+
+%description devel -l pl.UTF-8
+Ten pakiet zawiera pliki nagłówkowe dla programów używających
+myspella.
 
 %package static
 Summary:	Static myspell library
+Summary(pl.UTF-8):	Statyczna biblioteka myspella
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{version}-%{release}
 
 %description static
 This package contains the static library to use for programs wanting
 to use myspell.
+
+%description static -l pl.UTF-8
+Ten pakiet zawiera bibliotekę statyczną dla programów używających
+myspella.
 
 %prep
 %setup -q -n %{name}-3.0+pre%{version} -a1
@@ -112,7 +132,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files devel
 %defattr(644,root,root,755)
-%{_libdir}/libmyspell.so
+%attr(755,root,root) %{_libdir}/libmyspell.so
 %{_includedir}/myspell
 %{_pkgconfigdir}/myspell.pc
 

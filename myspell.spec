@@ -1,10 +1,10 @@
 %define		_major	3
-%define		_rel	1
+%define		_rel	2
 Summary:	myspell
 Name:		myspell
 Version:	3.1
 Release:	0.pre.%{_rel}
-License:	?
+License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}.orig.tar.gz
 # Source0-md5:	b487ec9287d5d006dadc73f2c0bb68e9
@@ -102,6 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.* CONTRIBUTORS
 %attr(755,root,root) %{_libdir}/libmyspell.so.*.*
+%dir %{_datadir}/myspell
 
 %files tools
 %defattr(644,root,root,755)

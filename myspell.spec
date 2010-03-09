@@ -1,5 +1,6 @@
 %define		_major	3
-%define		_rel	6
+%define		_minor	23
+%define		_rel	7
 Summary:	myspell - spellchecker derived from ispell
 Summary(pl.UTF-8):	myspell - narzędzie do sprawdzania pisowni wywodzące się z myspella
 Name:		myspell
@@ -11,6 +12,7 @@ Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{versio
 # Source0-md5:	b487ec9287d5d006dadc73f2c0bb68e9
 Source1:	%{name}-debian.tar.bz2
 # Source1-md5:	585eda508195d44ba2886aa6d2f972fc
+Source2:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-%{_minor}.diff.gz
 URL:		http://lingucomponent.openoffice.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

@@ -13,6 +13,7 @@ Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{versio
 Source1:	%{name}-debian.tar.bz2
 # Source1-md5:	585eda508195d44ba2886aa6d2f972fc
 Source2:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-%{_minor}.diff.gz
+# Source2-md5:	765baa0ae6bd3cab449ec4f7889e8d49
 URL:		http://lingucomponent.openoffice.org/
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 

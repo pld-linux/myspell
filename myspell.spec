@@ -38,8 +38,8 @@ This package contains scripts which may be helpful for converting
 ispell dictionaries to myspell ones.
 
 %description tools -l pl.UTF-8
-Ten pakiet zawiera skrypty przydatne do konwersji słowników ispella
-do słowników myspella.
+Ten pakiet zawiera skrypty przydatne do konwersji słowników ispella do
+słowników myspella.
 
 %package devel
 Summary:	MySpell spellchecking library development files

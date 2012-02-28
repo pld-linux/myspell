@@ -1,5 +1,5 @@
 %define		major	3
-%define		rel		7
+%define		rel		8
 Summary:	myspell - spellchecker derived from ispell
 Summary(pl.UTF-8):	myspell - narzędzie do sprawdzania pisowni wywodzące się z myspella
 Name:		myspell

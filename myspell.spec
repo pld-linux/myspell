@@ -1,18 +1,17 @@
-%define		_major	3
-%define		_minor	23
-%define		_rel	7
+%define		major	3
+%define		rel		7
 Summary:	myspell - spellchecker derived from ispell
 Summary(pl.UTF-8):	myspell - narzędzie do sprawdzania pisowni wywodzące się z myspella
 Name:		myspell
 Version:	3.1
-Release:	0.pre.%{_rel}
+Release:	0.pre.%{rel}
 License:	BSD
 Group:		Libraries
 Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}.orig.tar.gz
 # Source0-md5:	b487ec9287d5d006dadc73f2c0bb68e9
 Source1:	%{name}-debian.tar.bz2
 # Source1-md5:	585eda508195d44ba2886aa6d2f972fc
-Source2:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-%{_minor}.diff.gz
+Source2:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-23.diff.gz
 # Source2-md5:	765baa0ae6bd3cab449ec4f7889e8d49
 URL:		http://lingucomponent.openoffice.org/
 BuildRequires:	libstdc++-devel
@@ -102,11 +101,11 @@ ln -s %{_lib} $RPM_BUILD_ROOT%{_prefix}/lib
 # create the links since the Makefile does create them in the dir
 # but does not install them
 cd $RPM_BUILD_ROOT%{_libdir} && \
-	ln -s $(echo libmyspell.so.*.*) libmyspell.so.%{_major} && \
+	ln -s $(echo libmyspell.so.*.*) libmyspell.so.%{major} && \
 	ln -s $(echo libmyspell.so.*.*) libmyspell.so
 cd -
 
-install utils/ispellaff2myspell $RPM_BUILD_ROOT%{_bindir}
+install -p utils/ispellaff2myspell $RPM_BUILD_ROOT%{_bindir}
 pod2man utils/ispellaff2myspell \
 > $RPM_BUILD_ROOT%{_mandir}/man1/ispellaff2myspell.1
 
@@ -115,7 +114,7 @@ cat myspell.pc.in \
 	> $RPM_BUILD_ROOT%{_pkgconfigdir}/myspell.pc
 
 # packaged by myspell-dictionaries
-rm -f $RPM_BUILD_ROOT%{_datadir}/myspell/en_US.{aff,dic}
+%{__rm} $RPM_BUILD_ROOT%{_datadir}/myspell/en_US.{aff,dic}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -127,6 +126,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc README.* CONTRIBUTORS
 %attr(755,root,root) %{_libdir}/libmyspell.so.*.*
+%ghost %{_libdir}/libmyspell.so.3
 
 %files tools
 %defattr(644,root,root,755)

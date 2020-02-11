@@ -7,11 +7,11 @@ Version:	3.1
 Release:	0.pre.%{rel}
 License:	BSD
 Group:		Libraries
-Source0:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}.orig.tar.gz
+Source0:	http://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}.orig.tar.gz
 # Source0-md5:	b487ec9287d5d006dadc73f2c0bb68e9
 Source1:	%{name}-debian.tar.bz2
 # Source1-md5:	585eda508195d44ba2886aa6d2f972fc
-Source2:	ftp://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-23.diff.gz
+Source2:	http://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-23.diff.gz
 # Source2-md5:	765baa0ae6bd3cab449ec4f7889e8d49
 URL:		http://lingucomponent.openoffice.org/
 BuildRequires:	libstdc++-devel

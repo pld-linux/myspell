@@ -1,5 +1,5 @@
 %define		major	3
-%define		rel		8
+%define		rel		9
 Summary:	myspell - spellchecker derived from ispell
 Summary(pl.UTF-8):	myspell - narzędzie do sprawdzania pisowni wywodzące się z myspella
 Name:		myspell
@@ -13,6 +13,7 @@ Source1:	%{name}-debian.tar.bz2
 # Source1-md5:	585eda508195d44ba2886aa6d2f972fc
 Source2:	http://ftp.debian.org/debian/pool/main/m/myspell/%{name}_3.0+pre%{version}-23.diff.gz
 # Source2-md5:	765baa0ae6bd3cab449ec4f7889e8d49
+Patch0:		%{name}-pod-encoding.patch
 URL:		http://lingucomponent.openoffice.org/
 BuildRequires:	libstdc++-devel
 BuildRequires:	perl-tools-pod
@@ -73,6 +74,7 @@ myspella.
 for a in $(cat patches/00list); do
 	patch -p1 < patches/$a.dpatch;
 done
+%patch -P 0 -p1
 
 %build
 for i in $(grep 'OBJS =' Makefile | cut -d"=" -f2 | sed -e s/\.o/\.cxx/g); do

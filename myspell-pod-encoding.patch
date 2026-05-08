@@ -1,0 +1,11 @@
+--- a/utils/ispellaff2myspell	2026-05-08 22:57:22.903169508 +0200
++++ b/utils/ispellaff2myspell	2026-05-08 22:57:22.968816251 +0200
+@@ -327,6 +327,8 @@
+ 
+ __END__
+ 
++=encoding latin1
++
+ =head1 NAME
+ 
+ B<ispellaff2myspell> - A program to convert ispell affix tables to myspell format.
